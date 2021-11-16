@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block pageHead %}
+    <h1>Booking Confirmed at {{resource.hospital.name}}</h1>
+{% endblock %}
+
+{% block content %}
+
+<div class="row row-cols-1 row-cols-md-3 g-4 justify-content-center">
+    <div class="col">
+      <div class="card border-dark">
+        <div class="card-header"><h5>{{resource.hospital.name}}</h5></div>
+        <img src="{{resource.hospital.image.url}}" class="card-img-top" alt="Some Image" 
+        style="
+          display: block; margin-left: auto;
+          margin-right: auto;
+          width: 100%;
+          height:250px;
+          border-radius:0%
+        ">
+        <div class="card-body">
+            
+            <p class="card-text fw-bold">ICU Beds: {{form.icu_beds.value}}</p>
+            <p class="card-text fw-bold">Remdesivir: {{form.remdesivir.value}}</p>            
+            <p class="card-text fw-bold">Vaccine: {{form.vaccine.value}}</p>
+            <p class="card-text fw-bold">Ventilators: {{form.ventilators.value}}</p>
+
+            <a href="/resources/" class="btn btn-success " aria-current="page" style="margin-right:auto; margin-left:100px; padding-left:30px; padding-right:30px">Back to Resources</a>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+{% endblock %}

@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block pageHead %}
+    <h1>Posts</h1>
+{% endblock %}
+
+{% block content %}
+
+    {% if request.user.is_authenticated %}
+
+        <div class="container">
+            <div class="row justify-content-center mt-3">
+                <div class="col-md-5 col-sm-12 border-bottom">
+                    <h5>Write a Post...</h5>
+                </div>
+            </div>
+
+            <div class="row justify-content-center mt-3 mb-5">
+                <div class="col-md-5 col-sm-12 border-bottom">
+                    <form method="POST">
+                        {% csrf_token %}
+                        {{form | crispy}}
+                        <div class="d-grip gap-2">
+                            <button class="btn btn-success mt-3">Post!</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            {% for post in post_list %}
+            <div class="row justify-content-center mt-3">
+                <div class="col-md-5 col-sm-12 border-bottom position-relative">
+                    <p><strong>{{post.author}}</strong> {{post.created_on}}</p>
+                    <p>{{post.body}}</p>
+                    <a href="{% url 'post-detail' post.pk %}"
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+    {% else %}
+        <h4 class="col-md-6 offset-md-3">You are not Logged In. Please <a href="/login/">Login</a> to access this page</h4>
+    {% endif %}
+
+{% endblock content %}

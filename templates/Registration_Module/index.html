@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% load crispy_forms_tags %}  
+
+{% block pageHead %}
+    <h1>Sign Up</h1>
+{% endblock %}
+
+{% block content %}
+
+    {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+        <li  {% if message.tags %} class=" {{ message.tags }} " {% endif %}> {{ message }} </li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+
+    <div class="row row-cols-3 row-cols-md-3 g-4">
+        <div class="col">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title"><a href="/register/user/">Normal User</a></h5>
+            <!-- <p class="card-text"><a href="/register/user/">Sign Up</a></p> -->
+            <p class="card-text"></p>
+
+            <h5 class="card-title"><a href="/register/hospital/staff/">Hospital Stafff</a></h5>
+            <!-- <p class="card-text"><a href="/register/hospital/staff/">Sign Up</a></p> -->
+            <p class="card-text"></p>
+          </div>
+        </div>
+        </div>
+    </div>
+{% endblock %}

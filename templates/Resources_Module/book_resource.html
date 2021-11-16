@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block pageHead %}
+    <h1>Book Resource at {{resource.hospital.name}}</h1>
+{% endblock %}
+
+{% block content %}
+    
+    {% crispy form %}
+
+    <!-- <form action="{{resource_pk}}" method="post">
+        {% csrf_token %}
+        {{form.as_p}}
+        <button type="submit">Book</button>
+    </form> -->
+
+{% endblock %}
